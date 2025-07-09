@@ -7,16 +7,14 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS authorities (
     username VARCHAR(50) NOT NULL,
     authority VARCHAR(50) NOT NULL,
-    CONSTRAINT fk_authorities_users FOREIGN KEY(username) REFERENCES users(username)
+    FOREIGN KEY (username) REFERENCES users(username)
 );
 
 CREATE TABLE IF NOT EXISTS car (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    make VARCHAR(50) NOT NULL,
-    model VARCHAR(50) NOT NULL,
+    make VARCHAR(255) NOT NULL,
+    model VARCHAR(255) NOT NULL,
     year INT NOT NULL,
-    color VARCHAR(30),
-    price DECIMAL(10, 2)
+    color VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL
 );
-
-CREATE UNIQUE INDEX ix_auth_username ON authorities (username, authority);
