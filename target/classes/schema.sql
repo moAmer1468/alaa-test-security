@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS users (
+    username VARCHAR(50) NOT NULL PRIMARY KEY,
+    password VARCHAR(100) NOT NULL,
+    enabled BOOLEAN NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS authorities (
+    username VARCHAR(50) NOT NULL,
+    authority VARCHAR(50) NOT NULL,
+    FOREIGN KEY (username) REFERENCES users(username)
+);
+
+CREATE TABLE IF NOT EXISTS car (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    make VARCHAR(255) NOT NULL,
+    model VARCHAR(255) NOT NULL,
+    year INT NOT NULL,
+    color VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL
+);
